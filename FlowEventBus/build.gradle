@@ -27,5 +27,20 @@ afterEvaluate {
                 version = '1.0.0'
             }
         }
+        
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                
+                // Replace GITHUB_USERID with your personal or organisation user ID and 
+                // REPOSITORY with the name of the repository on GitHub
+                url = uri("https://maven.pkg.github.com/dsoft2010/FlowEventBus")
+
+                credentials {
+                    username = System.getenv("GITHUB_ACTOR")
+                    password = System.getenv("GITHUB_TOKEN")
+                }
+            }
+        }
     }
 }
